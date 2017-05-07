@@ -1,5 +1,6 @@
 import express from 'express';
 import cors from 'cors';
+import {logError, logSuccess, logWarning, logProcessing} from './chalkConfig';
 import { 
   graphqlExpress,
   graphiqlExpress,
@@ -19,4 +20,4 @@ server.use('/graphiql', graphiqlExpress({
   endpointURL: '/graphql'
 }));
 
-server.listen(PORT, () => console.log(`GraphQL Server is now running on http://localhost:${PORT}`));
+server.listen(PORT, () => console.log(logSuccess(`GraphQL Server is now running on http://localhost:${PORT}`)));

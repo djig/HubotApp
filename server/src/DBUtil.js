@@ -1,5 +1,6 @@
 import mySql from 'mysql';
-
+import {logError, logSuccess, logProcessing} from '../chalkConfig';
+/* eslint-disable no-console */
 export class DBUtil {
     constructor() {
         this.connection = mySql.createConnection({
@@ -12,6 +13,7 @@ export class DBUtil {
     }
     getUsers (args) {
         let sql = 'SELECT * FROM config.`users`';
+        console.log(logProcessing("users; Processing"));
             return new Promise((resolve) => {
                     if(args) {
                         sql +=" WHERE ";
@@ -24,10 +26,14 @@ export class DBUtil {
                         sql +="(first_name like '%" + args.name+  "%' or last_name like '%" + args.name;
                         sql +="%' or user_name like '%" + args.name+  "%' )";
                     }
-                    console.log(sql);
+                    console.log(logProcessing(sql));
                     this.connection.query(sql, (error, results) => {
-                        if (error) throw error;
-                        resolve(results);            
+                        if (error){
+                            console.log(logError(error)); 
+                            throw error;
+                        }
+                        resolve(results);
+                        console.log(logSuccess("getUsers succefully"));        
                     });
                 });
         } 
@@ -37,6 +43,10 @@ export class DBUtil {
         'WHERE u.`organization_id` = o.id and u.user_id =' + user_id.id;      
         return new Promise((resolve) => {
                 this.connection.query(sql, (error, organizations) => {
+                    if (error){
+                            console.log(logError(error));  
+                            throw error;
+                        }
                     resolve(organizations);
                 });
             });
