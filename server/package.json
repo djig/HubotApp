@@ -1,0 +1,53 @@
+{
+  "name": "hubot_server",
+  "version": "0.0.1",
+  "description": "Hubot App Server",
+  "main": "server.js",
+  "scripts": {
+    "startServer": "nodemon ./server.js --exec babel-node -e js",
+    "start": "npm-run-all --parallel startServer lint:watch",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "esw src --color",
+    "lint:watch": "npm run lint -- --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/djig/HubotApp.git"
+  },
+  "keywords": [
+    "GraphQL",
+    "express",
+    "node",
+    "react",
+    "hubot"
+  ],
+  "author": "Jignesh Dhamecha",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "cors": "^2.8.3",
+    "express": "^4.15.2",
+    "graphql": "^0.9.5",
+    "graphql-server-express": "^0.7.2",
+    "graphql-tools": "^0.11.0",
+    "mysql": "^2.13.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "babel-eslint":"^7.2.3",
+    "nodemon": "^1.11.0",
+    "npm-run-all": "3.1.2",
+    "chalk": "1.1.3",
+    "eslint": "3.12.2",
+    "eslint-plugin-import": "2.2.0",
+    "eslint-plugin-react": "6.8.0",
+    "eslint-watch": "2.1.14",
+    "jest": "18.1.0"
+  },
+  "bugs": {
+    "url": "https://github.com/djig/HubotApp/issues"
+  },
+  "homepage": "https://github.com/djig/HubotApp#readme"
+}
