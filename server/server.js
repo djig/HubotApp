@@ -1,17 +1,19 @@
 import express from 'express';
 import cors from 'cors';
-import {logError, logSuccess, logWarning, logProcessing} from './chalkConfig';
+import {logSuccess} from './chalkConfig';
 import { 
   graphqlExpress,
   graphiqlExpress,
 } from 'graphql-server-express';
 import bodyParser from 'body-parser';
-
+import config from 'config';
 import { schema } from './src/schema';
-const PORT = 4000;
+const PORT = config.get("port");
 const server = express();
+/* eslint-disable no-console */
+const webServer = "http://" + config.get("webServer.host") + ":" + config.get("webServer.port");
 
-server.use('*', cors({ origin: 'http://localhost:3000' }));
+server.use('*', cors({ origin: webServer }));
 server.use('/graphql', bodyParser.json(), graphqlExpress({
   schema
 }));

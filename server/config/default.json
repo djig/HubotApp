@@ -1,0 +1,13 @@
+{
+   "port": 4000,
+    "mySQl": {
+        "host": "wc-dev04.cl.adap.tv",
+        "user": "flixtrix",
+        "password": "local",
+        "database": "config"
+    },
+    "webServer": {
+       "host": "localhost",
+        "port": 3000
+    }
+ }

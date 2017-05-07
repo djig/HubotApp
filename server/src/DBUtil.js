@@ -1,19 +1,15 @@
 import mySql from 'mysql';
 import {logError, logSuccess, logProcessing} from '../chalkConfig';
+import config from 'config';
 /* eslint-disable no-console */
 export class DBUtil {
     constructor() {
-        this.connection = mySql.createConnection({
-            host     : 'wc-dev04.cl.adap.tv',
-            user     : 'flixtrix',
-            password : 'local',
-            database : 'config'
-        });
+        this.connection = mySql.createConnection(config.get("mySQl"));
         this.connection.connect();
     }
     getUsers (args) {
         let sql = 'SELECT * FROM config.`users`';
-        console.log(logProcessing("users; Processing"));
+        console.log(logProcessing("users: Processing"));
             return new Promise((resolve) => {
                     if(args) {
                         sql +=" WHERE ";
