@@ -2,12 +2,14 @@
   "name": "hubot_server",
   "version": "0.0.1",
   "description": "Hubot App Server",
+  "author": "Jignesh Dhamecha",
+  "license": "MIT",
   "main": "server.js",
   "scripts": {
     "startServer": "nodemon ./server.js --exec babel-node -e js",
     "start": "npm-run-all --parallel startServer lint:watch",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "esw src --color",
+    "lint": "esw ./ src --color",
     "lint:watch": "npm run lint -- --watch"
   },
   "repository": {
@@ -21,8 +23,6 @@
     "react",
     "hubot"
   ],
-  "author": "Jignesh Dhamecha",
-  "license": "MIT",
   "dependencies": {
     "body-parser": "^1.17.1",
     "cors": "^2.8.3",
