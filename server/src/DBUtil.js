@@ -12,14 +12,14 @@ export class DBUtil {
         console.log(logProcessing("users: Processing"));
             return new Promise((resolve) => {
                     if(args) {
-                        sql +=" WHERE ";
+                        sql +=" WHERE 1=1 ";
                     }
                     if(args.id) {
-                        sql +="id="+ args.id;
+                        sql +="and id="+ args.id + " ";
                     }
 
                     if(args.name) {
-                        sql +="(first_name like '%" + args.name+  "%' or last_name like '%" + args.name;
+                        sql +="and (first_name like '%" + args.name+  "%' or last_name like '%" + args.name;
                         sql +="%' or user_name like '%" + args.name+  "%' )";
                     }
                     console.log(logProcessing(sql));

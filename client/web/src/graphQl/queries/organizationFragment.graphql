@@ -1,0 +1,4 @@
+fragment UserOrg on Orgnization {
+   company_name
+   homepage
+}

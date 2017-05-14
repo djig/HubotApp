@@ -1,0 +1,18 @@
+ 
+#import "./organizationFragment.graphql"
+fragment UserOrg on Orgnization {
+   company_name
+   homepage
+}
+
+query UserQuery($name: String!) {
+     users(name: $name){
+       id, 
+       first_name, 
+       last_name, 
+       user_name,
+       Orgnization {
+         ...UserOrg
+       }
+      }
+   }
