@@ -26,11 +26,37 @@ type User {
    acct_enabled: Int!,
    created_at: String,
    Orgnization: [Orgnization]
+},
+enum category {
+  Technology
+  Science
+  Sports
+  Politics
+  Other
+},
+
+enum rating {
+    HateIt,
+    LoveIt
+    Average
+    FuckYou
+    Angry
+},
+
+type comment {
+  _id:  ID!
+  title: String
+  text: String
+  categories: [category]
+  ratings: [rating]
 }
+
+
 # This type specifies the entry points into our API. In this case
 # there is only one - "channels" - which returns a list of channels.
 type Query {
    users(id: ID, name: String): [User]
+   comments(id: ID, title: String): [comment]
 }
 # The mutation root type, used to define all mutations.
 type Mutation {

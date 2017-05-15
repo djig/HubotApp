@@ -1,4 +1,5 @@
-import { DBUtil } from './DBUtil';
+import { DBUtil } from "./DBUtil";
+import { couchDB, dbName, getAllDocuments } from "./couchDB"
 let nextId = 0,
     samples= [];
 
@@ -9,6 +10,10 @@ export const resolvers = {
     users: async (root, args) => {
           return await dbUtil.getUsers(args);
         },
+
+    comments: async (root, args) => {
+          return await getAllDocuments();     
+    },
   },
   User: {
         Orgnization: async ({id}) => {
