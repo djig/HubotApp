@@ -8,12 +8,15 @@ For GraphQL/Express Server
 
 go to server folder and run 
 
+
 cd server
+
 npm install
 
 After successful  installation of node_modules run
 
 npm start
+
 
 graphiQL will be running on port 4000
 
@@ -25,6 +28,8 @@ For React/Redux/Apollo GraphQl Client
 go to client/web folder and run 
 
 cd client/web
+
+
 npm install
 
 After successful  installation of node_modules run
