@@ -1,8 +1,8 @@
 # HubotApp
  
-#Get Started
+## Get Started
 
-###Initial Machine Setup.  Then complete the Initial Machine Setup.
+### Initial Machine Setup.  Then complete the Initial Machine Setup.
 1. Clone the project. git clone git@github.com:djig/HubotApp.git.
 
 2. For GraphQL/Express Server 
