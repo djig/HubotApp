@@ -1,5 +1,5 @@
 import { DBUtil } from "./DBUtil";
-import { couchDB, dbName, getAllDocuments } from "./couchDB"
+import { getAllDocuments, insertDocument } from "./couchDB"
 let nextId = 0,
     samples= [];
 
@@ -10,9 +10,9 @@ export const resolvers = {
     users: async (root, args) => {
           return await dbUtil.getUsers(args);
         },
-
     comments: async (root, args) => {
-          return await getAllDocuments();     
+      console.log(args);
+          return await getAllDocuments(args);
     },
   },
   User: {
@@ -26,5 +26,13 @@ export const resolvers = {
       samples.push(newSample);
       return newSample;
     },
+    addComment: async (root, args) => {
+      return await insertDocument(args.input);
+    },
+    updateComment: async (root, args) => {
+      console.log(args.input);
+      return await insertDocument(args.input);
+    },
+
   },
 };

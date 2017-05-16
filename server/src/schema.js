@@ -49,8 +49,23 @@ type comment {
   text: String
   categories: [category]
   ratings: [rating]
+  _rev: String
 }
 
+input commentInput {
+  title: String
+  text: String
+  categories: [category]
+  ratings: [rating]
+}
+input commentUpdateInput {
+  _id:  ID!
+  _rev: String
+  title: String
+  text: String
+  categories: [category]
+  ratings: [rating]
+}
 
 # This type specifies the entry points into our API. In this case
 # there is only one - "channels" - which returns a list of channels.
@@ -62,6 +77,8 @@ type Query {
 type Mutation {
   # A mutation to add a new channel to the list of channels
   addSample(name: String!): Sample
+  addComment(input: commentInput): comment
+  updateComment(input: commentUpdateInput): comment
 }
 `;
 const schema = makeExecutableSchema({ typeDefs, resolvers });

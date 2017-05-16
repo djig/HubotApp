@@ -40,21 +40,7 @@ export const getGraph = (payload) => {
    
  
 
-const ChannelsList = ({ data: {loading, error, channels }}) => {
-      if (loading) {
-        return <p>Loading ...</p>;
-      }
-      console.log(error);
-      if (error) {
-        return <p>{error.message}</p>;
-      }
-      
-      return <ul>
-        { channels.map( ch => <li key={ch.id}>{ch.id + '-' + ch.name}</li> ) }
-      </ul>;
-    };
-    const ChannelsListWithData = graphql(userListQuery)(ChannelsList);
-    console.log(ChannelsListWithData());
+
     
     payload='{users(name: "salmon"){id, first_name, last_name, phone, user_name}}';
   return dispatch => {
