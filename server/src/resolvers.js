@@ -11,7 +11,6 @@ export const resolvers = {
           return await dbUtil.getUsers(args);
         },
     comments: async (root, args) => {
-      console.log(args);
           return await getAllDocuments(args);
     },
   },

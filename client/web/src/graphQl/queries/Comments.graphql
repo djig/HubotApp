@@ -1,0 +1,10 @@
+query CommentsQuery {
+       comments{
+          _id
+          text
+          title
+          ratings
+          categories
+          _rev 
+        }
+   }
