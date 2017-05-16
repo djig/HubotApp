@@ -17,3 +17,13 @@
     1. cd client/web
     2. npm install
     3. npm start
+
+
+### Please make sure install watchman
+https://facebook.github.io/watchman/
+#### Installing on OS X via Homebrew
+    $ brew update
+    $ brew install watchman
+
+        
+
