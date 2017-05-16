@@ -8,7 +8,6 @@
 #### For GraphQL/Express Server 
 
     1. cd server
-
     2. npm install
     3. npm start
     4. graphiQL will be running on port 4000 http://localhost:4000/graphiql
