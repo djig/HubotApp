@@ -1,11 +1,20 @@
-import { getAllDocuments, insertDocument, couchDB, dbName } from "./couchDB"
+import { getAllDocuments, insertDocument, dbName } from "./couchDB"
+import couchDb from 'nano';
+import config from 'config';
 import commentsData from "../data/initialComments.json"
+const couchDB =  new couchDb(config.get("couchDB.baseUrl"));
 
-couchDB.db.get(dbName, (err, body) => {
-    if (err) {
-        couchDB.db.create(dbName);
-    }
+const insertComments = () => 
     commentsData.data.comments.forEach((comment) => {
         insertDocument(comment);
     });
+
+couchDB.db.get(dbName, (err, body) => {
+    if (err) {
+        couchDB.db.create(dbName, () =>{
+            insertComments();
+        });
+    } else {
+        insertComments();
+    } 
 });
