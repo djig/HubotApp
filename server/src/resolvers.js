@@ -1,14 +1,12 @@
-import { DBUtil } from "./DBUtil";
+import { getUsers, getOrgs } from "./mySqlDb";
 import { getAllDocuments, insertDocument } from "./couchDB"
 let nextId = 0,
     samples= [];
 
-const dbUtil =  new DBUtil();
-
 export const resolvers = {
   Query: {
     users: async (root, args) => {
-          return await dbUtil.getUsers(args);
+          return await getUsers(args);
         },
     comments: async (root, args) => {
           return await getAllDocuments(args);
@@ -16,7 +14,7 @@ export const resolvers = {
   },
   User: {
         Orgnization: async ({id}) => {
-          return  await dbUtil.getOrgs({id});
+          return  await getOrgs({id});
         }
       },
   Mutation: {
