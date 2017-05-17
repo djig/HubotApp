@@ -10,7 +10,8 @@
     "start": "npm-run-all --parallel startServer lint:watch",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "esw ./ src --color",
-    "lint:watch": "npm run lint -- --watch"
+    "lint:watch": "npm run lint -- --watch",
+    "importData": "node_modules/.bin/babel-node ./src/importData.js"
   },
   "repository": {
     "type": "git",

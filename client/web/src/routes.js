@@ -11,6 +11,6 @@ export default (
   <Route path="/" component={App}>
     <IndexRoute component={HomePage}/>
      <Route path="users" component={UserPageContainer}/>
-    <Route path="*" component={NotFoundPage}/>
+      <Route path="*" component={NotFoundPage}/>
   </Route>
 );
