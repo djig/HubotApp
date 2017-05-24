@@ -5,7 +5,6 @@ import Paper from 'material-ui/Paper';
 import Avatar from 'material-ui/Avatar';
 import Users from 'material-ui/svg-icons/social/people';
 import Comment from 'material-ui/svg-icons/communication/comment';
-///Users/jdhamecha/work/HubotApp/client/web/node_modules/material-ui/svg-icons/social/people.js 
 // This is a class-based component because the current
 // version of hot reloading won't hot reload a stateless
 // component at the top-level.
@@ -19,10 +18,8 @@ class App extends React.Component {
         display: 'inline-block',
       };
     return (
- 
-
-
         <div className="container">
+          <Paper zDepth={1} >
           <header id="main-header">
           <nav className="navbar navbar-default">
             <div className="row">
@@ -48,9 +45,7 @@ class App extends React.Component {
           </header>
  
         <div className="wrapper header">
-          <Paper style={style} zDepth={1} >
             {this.props.children} 
-          </Paper>
         </div>
         <footer id="footer">
           <div className="container">
@@ -59,6 +54,7 @@ class App extends React.Component {
             </div>
           </div>
         </footer>
+        </Paper>
       </div>
  
       
