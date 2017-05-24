@@ -1,35 +1,56 @@
 import React, { PropTypes } from 'react';
 import { Link, IndexLink } from 'react-router';
+ 
+import Paper from 'material-ui/Paper';
+import Avatar from 'material-ui/Avatar';
+import Users from 'material-ui/svg-icons/social/people';
+import Comment from 'material-ui/svg-icons/communication/comment';
+///Users/jdhamecha/work/HubotApp/client/web/node_modules/material-ui/svg-icons/social/people.js 
 // This is a class-based component because the current
 // version of hot reloading won't hot reload a stateless
 // component at the top-level.
 class App extends React.Component {
   render() {
     let location = this.props.location.pathname;
+    const style = {
+        width: '100%',
+        margin: 20,
+        textAlign: 'center',
+        display: 'inline-block',
+      };
     return (
-      <div className="container">
-        <header id="main-header">
-        <nav className="navbar navbar-default navbar-fixed-top">
-          <div className="container">
-            <div className="navbar-header">
-              <button type="button" className="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                <span className="icon-bar"></span>
-                <span className="icon-bar"></span>
-                <span className="icon-bar"></span>
-              </button>
-              <a className="navbar-brand" href="#">React<span className="logo-dec">Play</span></a>
+ 
+
+
+        <div className="container">
+          <header id="main-header">
+          <nav className="navbar navbar-default">
+            <div className="row">
+                <div className="col-md-8 col-lg-8 col-sm-8">
+                    <a className="navbar-brand" href="#">React<span className="logo-dec">Play</span></a>
+                </div>
+                <div className="col-md-4 col-lg-4 col-sm-4">
+                    <ul className="nav navbar-nav">
+                      <li className={location === "/" ? 'active' : ''}><IndexLink activeStyle={{color: 'blue'}} to="/">
+                        <Comment color={location === "/" ? 'blue' : 'grey'}  hoverColor="green"/>
+                        Comments
+                      </IndexLink></li>
+                      <li className={location === "/users" ? 'active' : ''}><Link activeStyle={{color: 'blue'}} to="/users">
+                 
+                       <Users color={location === "/users" ? 'blue' : 'grey'} hoverColor="green"/>
+                      Users
+                      
+                      </Link></li>
+                    </ul>
+                </div>
             </div>
-            <div className="collapse navbar-collapse" id="myNavbar">
-              <ul className="nav navbar-nav navbar-right">
-                <li className={location === "/" ? 'active' : ''}><IndexLink activeStyle={{color: 'blue'}} to="/">Home</IndexLink></li>
-                <li className={location === "/users" ? 'active' : ''}><Link activeStyle={{color: 'blue'}} to="/users">Users</Link></li>
-              </ul>
-            </div>
-          </div>
-        </nav>
-        </header>
+          </nav>
+          </header>
+ 
         <div className="wrapper header">
-          {this.props.children} 
+          <Paper style={style} zDepth={1} >
+            {this.props.children} 
+          </Paper>
         </div>
         <footer id="footer">
           <div className="container">
@@ -39,6 +60,8 @@ class App extends React.Component {
           </div>
         </footer>
       </div>
+ 
+      
     );
   }
 }

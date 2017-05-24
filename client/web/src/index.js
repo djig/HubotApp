@@ -12,13 +12,21 @@ import './styles/about-page.css';
 import { syncHistoryWithStore } from 'react-router-redux';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import { ApolloProvider} from 'react-apollo';
+import injectTapEventPlugin from 'react-tap-event-plugin';
+import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+
+
+injectTapEventPlugin();
 const store = configureStore();
 // Create an enhanced history that syncs navigation events with the store fd
 const history = syncHistoryWithStore(browserHistory, store);
 
 render(
   <ApolloProvider store={store} client={client}>
-    <Router history={history} routes={routes} />
-   
+    <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
+      <Router history={history} routes={routes} />
+    </MuiThemeProvider>
   </ApolloProvider>, document.getElementById('app')
 );

@@ -1,0 +1,14 @@
+$vin-blue: #5bb7db;
+$vin-green: #60b044;
+$vin-red: #ff0000;
+$vin-bgClor: rgba(255,255,255,.04);
+
+.comment{
+    border-radius: 5px !important;
+    background-color: $vin-bgClor !important;
+    width: 250px;
+    display: inline-flex;
+    padding: 15px;
+    min-height: 150px;
+    margin: 5px;
+}
