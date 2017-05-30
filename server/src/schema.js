@@ -49,7 +49,6 @@ type comment {
   text: String
   categories: [category]
   ratings: [rating]
-  _rev: String
 }
 
 input commentInput {
@@ -60,7 +59,6 @@ input commentInput {
 }
 input commentUpdateInput {
   _id:  ID!
-  _rev: String
   title: String
   text: String
   categories: [category]

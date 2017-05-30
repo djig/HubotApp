@@ -13,5 +13,9 @@
     "couchDB": {
         "baseUrl": "http://localhost:5984",
         "dbName": "hubot"
+    },
+     "couchbase": {
+        "host": "localhost",
+        "bucketName": "default"
     }
  }

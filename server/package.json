@@ -11,7 +11,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "esw ./ src --color",
     "lint:watch": "npm run lint -- --watch",
-    "importData": "node_modules/.bin/babel-node ./src/importData.js"
+    "importData": "node_modules/.bin/babel-node ./src/importData.js",
+    "importDataCouchbase": "node_modules/.bin/babel-node ./src/importDataCouchbase.js"
   },
   "repository": {
     "type": "git",
@@ -28,12 +29,14 @@
     "body-parser": "^1.17.1",
     "cors": "^2.8.3",
     "config":"1.26.1",
+    "couchbase":"2.3.3",
     "express": "^4.15.2",
     "graphql": "^0.9.5",
     "graphql-server-express": "^0.7.2",
     "graphql-tools": "^0.11.0",
     "mysql": "^2.13.0",
-    "nano":"6.2.0"
+    "nano":"6.2.0",
+    "request":"2.81.0"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",

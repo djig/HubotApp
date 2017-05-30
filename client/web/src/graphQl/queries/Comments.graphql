@@ -1,10 +1,9 @@
-query CommentsQuery {
-       comments{
+query CommentsQuery($title: String) {
+  comments(title: $title) {
           _id
           text
           title
           ratings
           categories
-          _rev 
         }
    }
