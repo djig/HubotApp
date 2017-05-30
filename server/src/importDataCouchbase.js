@@ -22,11 +22,6 @@ const insertData = (name) => {
                                     let r = Math.random()*16|0, v = c == 'x' ? r : (r&0x3|0x8);
                                     return v.toString(16);
                                 });
-        // comment = Object.assign({}, comment, {
-        //     _id: id,
-        //     _rev: id.toString()
-        // });
-
         bucket.insert(id.toString(), comment, (err, res) =>{
             if(err) {
                     console.log(logError(err));
@@ -48,7 +43,5 @@ const insertData = (name) => {
         });
     }
 };
-//console.log(getComments);
-getComments("test");
-//getAllDocuments();
-//insertData(config.get("couchbase.bucketName"));
+
+insertData(config.get("couchbase.bucketName"));
