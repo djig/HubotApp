@@ -7,8 +7,8 @@
 ### For GraphQL/Express Server 
     $ cd server
     $ npm install
-    Install Couch DB http://couchdb.apache.org/
-    $ npm run importData
+    Install CouchBase DB https://www.couchbase.com/downloads
+    $ npm run importDataCouchbase
     $ npm start
     graphiQL will be running on port 4000 http://localhost:4000/graphiql
     Verify by running http://localhost:4000/graphiql?query=query%20Comments%7B%0A%20%20comments%7B%0A%20%20%20%20_id%0A%20%20%20%20text%0A%20%20%7D%0A%7D&operationName=Comments
