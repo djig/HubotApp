@@ -23,5 +23,5 @@ https://facebook.github.io/watchman/
 
 #### Installing on OS X via Homebrew
     $ brew update
-    $ brew install watchman
+    $ brew install watchman.
     
