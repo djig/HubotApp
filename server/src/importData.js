@@ -1,7 +1,7 @@
-import { getAllDocuments, insertDocument, dbName } from "./couchDB"
-import couchDb from 'nano';
-import config from 'config';
-import commentsData from "../data/initialComments.json"
+import { insertDocument, dbName } from "./couchDB";
+import couchDb from "nano";
+import config from "config";
+import commentsData from "../data/initialComments.json";
 const couchDB =  new couchDb(config.get("couchDB.baseUrl"));
 
 const insertComments = () => 
@@ -15,6 +15,7 @@ couchDB.db.get(dbName, (err, body) => {
             insertComments();
         });
     } else {
+        console.log(body);
         insertComments();
     } 
 });

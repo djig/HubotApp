@@ -1,5 +1,5 @@
 import mySql from 'mysql';
-import {logError, logSuccess, logProcessing} from '../chalkConfig';
+import {logError, logSuccess, logProcessing} from './chalkConfig';
 import config from 'config';
 /* eslint-disable no-console */
 

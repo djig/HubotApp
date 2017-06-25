@@ -1,9 +1,7 @@
 import couchbase from 'couchbase';
 import config from 'config';
 import commentsData from "../data/initialComments.json";
-import {logSuccess, logError} from '../chalkConfig';
-import { getComments } from './couchbaseDB'
-import { getAllDocuments, insertDocument } from "./couchDB";
+import {logSuccess, logError} from './chalkConfig';
 const hubotCluster = new couchbase.Cluster('couchbase://localhost'),
     N1qlQuery = couchbase.N1qlQuery;
 let bucket,

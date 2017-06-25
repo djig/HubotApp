@@ -7,7 +7,7 @@ import {
 } from 'graphql-server-express';
 import bodyParser from 'body-parser';
 import config from 'config';
-import { schema } from './src/schema';
+import { schema } from './schema';
 const PORT = config.get("port");
 const server = express();
 /* eslint-disable no-console */
