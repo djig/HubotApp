@@ -6,12 +6,11 @@ let nextId = 0,
 /* eslint-disable no-console */
 export const resolvers = {
   Query: {
-    users: async (root, args) => {
-          return await getUsers(args);
+    users: (root, args) => {
+          return getUsers(args);
         },
     comments: async (root, args) => {
           return await getComments(args);
-          //return await getAllDocuments(args);
     },
   },
   User: {
