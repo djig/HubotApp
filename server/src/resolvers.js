@@ -1,6 +1,6 @@
 import { getUsers, getOrgs } from "./mySqlDb";
 import { insertDocument } from "./couchDB";
-import { getComments } from './couchbaseDB';
+import { getComments, upsertComment } from './couchbaseDB';
 let nextId = 0,
     samples= [];
 /* eslint-disable no-console */
@@ -25,10 +25,10 @@ export const resolvers = {
       return newSample;
     },
     addComment: async (root, args) => {
-      return await insertDocument(args.input);
+      return await upsertComment(args.input);
     },
     updateComment: async (root, args) => {
-      return await insertDocument(args.input);
+      return await upsertComment(args.input);
     },
 
   },

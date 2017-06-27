@@ -1,6 +1,7 @@
 import couchbase from 'couchbase';
 import config from 'config';
-import {logSuccess, logError} from './chalkConfig';
+import { logSuccess, logError } from './chalkConfig';
+import util from './util'
 /* eslint-disable no-console */
 
 const hubotCluster = new couchbase.Cluster('couchbase://localhost'),
@@ -45,4 +46,26 @@ export function getComments (args) {
     query = N1qlQuery.fromString(nsql);
 
     return getData(query);   
-}    
+}
+
+export function upsertComment (args) {
+    let docId = args._id,
+        comment = Object.assign({}, args);
+
+    if(!docId) {
+        docId = util.getnerateUUID();
+    }
+    if (comment._id) {
+        delete comment._id;
+    }
+    return new Promise((resolve, reject) =>{
+        bucket.upsert(docId.toString(), comment, (err, res) =>{
+            if(err) {
+                console.log(logError(err));
+                reject(err);
+            }
+            console.log(logSuccess("Successfully inserted document: "+ res.cas));
+            resolve(Object.assign({}, comment, { '_id': docId }));
+        });
+    });
+}  
