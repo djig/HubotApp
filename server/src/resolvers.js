@@ -1,9 +1,8 @@
 import { getUsers, getOrgs } from "./mySqlDb";
-import { insertDocument } from "./couchDB";
 import { getComments, upsertComment } from './couchbaseDB';
 let nextId = 0,
     samples= [];
-/* eslint-disable no-console */
+
 export const resolvers = {
   Query: {
     users: (root, args) => {

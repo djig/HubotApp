@@ -1,8 +1,7 @@
 import couchbase from 'couchbase';
 import config from 'config';
 import { logSuccess, logError } from './chalkConfig';
-import util from './util'
-/* eslint-disable no-console */
+import util from './util';
 
 const hubotCluster = new couchbase.Cluster('couchbase://localhost'),
     N1qlQuery = couchbase.N1qlQuery,

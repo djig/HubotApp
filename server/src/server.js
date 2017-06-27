@@ -10,7 +10,6 @@ import config from 'config';
 import { schema } from './schema';
 const PORT = config.get("port");
 const server = express();
-/* eslint-disable no-console */
 const webServer = "http://" + config.get("webServer.host") + ":" + config.get("webServer.port");
 
 server.use('*', cors({ origin: webServer }));

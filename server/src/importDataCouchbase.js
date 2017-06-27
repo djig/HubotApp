@@ -9,7 +9,6 @@ let bucket,
     comment,
     id;
 
-/* eslint-disable no-console */
 const insertData = (name) => {
     bucket = hubotCluster.openBucket(config.get("couchbase.bucketName"));
     bucket.operationTimeout = 200 * 1000;
