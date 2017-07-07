@@ -6,10 +6,11 @@
   "license": "MIT",
   "main": "server.js",
   "scripts": {
-    "startServer": "nodemon src/server.js --exec babel-node -e js",
-    "start": "npm-run-all --parallel startServer lint:watch",
+    "startGraphQlServer": "nodemon src/server.js --exec babel-node -e js --mode=graphQl",
+    "startRestAPIServer": "nodemon src/server.js --exec babel-node -e js --mode=restAPI",
+    "start": "npm-run-all --parallel startGraphQlServer startRestAPIServer lint:watch",
     "build": "babel --plugins transform-runtime src -d dist",
-    "startProduction": "node dist/prod.js",
+    "startProduction": "node dist/server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "esw ./ src --color",
     "lint:watch": "npm run lint -- --watch",
@@ -38,7 +39,8 @@
     "graphql-tools": "^0.11.0",
     "mysql": "^2.13.0",
     "nano":"6.2.0",
-    "request":"2.81.0"
+    "request":"2.81.0",
+    "yargs":"^8.0.2"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",

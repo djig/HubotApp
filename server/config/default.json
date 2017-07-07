@@ -1,5 +1,6 @@
 {
-   "port": 4000,
+   "grapQlport": 4000,
+   "restAPIport": 4002,
     "mySQl": {
         "host": "wc-dev04.cl.adap.tv",
         "user": "flixtrix",

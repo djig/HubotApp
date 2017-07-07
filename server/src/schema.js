@@ -51,6 +51,11 @@ type comment {
   ratings: [rating]
 }
 
+type commentsOutput {
+  count: Int
+  comments: [comment]
+}
+
 input commentInput {
   title: String
   text: String
@@ -69,7 +74,7 @@ input commentUpdateInput {
 # there is only one - "channels" - which returns a list of channels.
 type Query {
    users(id: ID, name: String): [User]
-   comments(id: ID, title: String): [comment]
+   listcomments(_id: ID, title: String, limit: Int, offset: Int): commentsOutput
 }
 # The mutation root type, used to define all mutations.
 type Mutation {

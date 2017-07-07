@@ -8,7 +8,7 @@ export const resolvers = {
     users: (root, args) => {
           return getUsers(args);
         },
-    comments: async (root, args) => {
+    listcomments: async (root, args) => {
           return await getComments(args);
     },
   },
