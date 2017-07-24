@@ -87,12 +87,16 @@ export function upsertComment (args) {
         delete comment._id;
     }
     return new Promise((resolve, reject) =>{
+        if(!comment.title) {
+            reject("comments can not be empty"); 
+        }
         bucket.upsert(docId.toString(), comment, (err, res) =>{
             if(err) {
                 console.log(logError(err));
                 reject(err);
             }
             console.log(logSuccess(`Successfully inserted document: ${res.cas}`));
+            console.log(logSuccess(`Successfully inserted document: ${comment.title}`));
             resolve(Object.assign({}, comment, { '_id': docId }));
         });
     });

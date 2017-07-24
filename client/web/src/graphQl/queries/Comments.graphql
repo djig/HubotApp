@@ -1,9 +1,12 @@
 query CommentsQuery($title: String) {
-  comments(title: $title) {
-          _id
-          text
-          title
-          ratings
-          categories
-        }
-   }
+  comments: listcomments(title:$title){
+    count
+    list: comments{
+      _id
+      text
+      title
+      ratings
+      categories
+    }
+  }
+}

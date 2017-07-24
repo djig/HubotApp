@@ -1,6 +1,6 @@
 import { 
-        listComments, 
-        updateInsertComment, 
+        listComments,
+        updateInsertComment,
         deleteComment 
     } from './routesResolvers';
 
@@ -13,4 +13,6 @@ export function routes (server) {
             .get(listComments)
             .put(updateInsertComment)
             .delete(deleteComment);
+    server.route("/comments/search/:title")
+            .get(listComments);        
 }

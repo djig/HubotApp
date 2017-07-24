@@ -8,15 +8,9 @@ class UserGraphQuery extends React.Component {
   }
   componentDidMount() {
     console.log("jgi");
-    // this.props.dispatch(
-    //   getGraph("{users(name: 'salmon'){ {id, first_name, last_name, phone, user_name}}")
-    // );
   }
    render() {
       let dispatch = this.props.dispatch;
-      // let fetchInProgress = String(this.props.store.get('fetching'));
-      // let queryText;
-      // let users = this.props.store.get('data').toObject();
       return (
         <div>
           <p>List users: </p>
@@ -40,6 +34,3 @@ const mapStateToProps = (state) => {
 export default UserGraphQuery = connect(
   mapStateToProps
 )(UserGraphQuery);
-
- 
-

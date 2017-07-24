@@ -1,7 +1,6 @@
 
 import { 
     ApolloClient,
-    ApolloProvider,
     createNetworkInterface,
     addTypeName,
 } from 'react-apollo';

@@ -20,8 +20,10 @@ server.use('*', cors({ origin: webServer }));
 if(serverMode === "restAPI") {
   PORT = config.get("restAPIport");
   server.get('/', (req, res) =>
-    res.send('Hello World!')
+    res.send('Welcome to Express REST API')
   );
+  server.use(bodyParser.urlencoded({ extended: true }));
+  server.use(bodyParser.json());
   routes(server);
 } else {
   server.use('/graphql', bodyParser.json(), graphqlExpress({

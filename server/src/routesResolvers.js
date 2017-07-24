@@ -5,7 +5,6 @@ import {
     } from './couchbaseDB';
 
 export function listComments (req, res) {
-    console.log(req.params);
     getComments(req.params)
         .then((comments) => {
             res.json(comments);
@@ -20,7 +19,6 @@ export function updateInsertComment (req, res) {
         })
         .catch((error) => res.send(error));
 }
-
 export function deleteComment (req, res) {
     deleteDocument(req.params)
         .then((result) => {

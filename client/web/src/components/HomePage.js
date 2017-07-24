@@ -77,8 +77,8 @@ class HomePage extends Component {
         {
           loading ? <div>Loading</div>
           :<div>
-              <h4>No Of Records {comments.length}</h4>
-              {comments.map((comment) => renderComment(comment))}
+              <h4>No Of Records {comments.count}</h4>
+              {comments.list.map((comment) => renderComment(comment))}
             </div>
         }
       </div>
@@ -114,7 +114,6 @@ export const HomePageContainer = (props) => {
     />
   );
 };
- 
 HomePageContainer.constuctor = () =>
   this.state = {
     title:''
