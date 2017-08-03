@@ -18,11 +18,6 @@ export const resolvers = {
         }
       },
   Mutation: {
-    addSample: (root, args) => {
-      const newSample = { id: nextId++, name: args.name };
-      samples.push(newSample);
-      return newSample;
-    },
     addComment: async (root, args) => {
       return await upsertComment(args.input);
     },

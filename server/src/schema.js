@@ -71,15 +71,14 @@ input commentUpdateInput {
 }
 
 # This type specifies the entry points into our API. In this case
-# there is only one - "channels" - which returns a list of channels.
+# there is only one - "comment" - which returns a list of comments.
 type Query {
    users(id: ID, name: String): [User]
    listcomments(_id: ID, title: String, limit: Int, offset: Int): commentsOutput
 }
 # The mutation root type, used to define all mutations.
 type Mutation {
-  # A mutation to add a new channel to the list of channels
-  addSample(name: String!): Sample
+  # A mutation to add a new comment to the list of comments
   addComment(input: commentInput): comment
   updateComment(input: commentUpdateInput): comment
 }
